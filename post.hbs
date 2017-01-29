@@ -81,31 +81,26 @@
             </div>
           </footer>
         </section>
+ <section class="post-comments">
+    <div class="ds-thread" data-thread-key="{{slug}}" data-title="{{{title}}}" data-url="{{url absolute="true"}}"></div>
+</section>
       {{/post}}
-      <section itemprop="comment" class="post-comments">
-        <div id="disqus_thread"></div>
-      </section>
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tailnode"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
     </article>
 
     {{> footer this}}
   </div>
 </section>
 
-<script type="text/javascript">
-  if(GHOSTIUM.haveDisqus) {
-    {{#post}}
-    var disqus_identifier = '{{id}}';
-    {{/post}}
-
-    if(typeof DISQUS !== 'object') {
-      (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-      }());
-    }
-  } else {
-    document.querySelector('.post-comments').remove();
-  }
-</script>
